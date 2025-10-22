@@ -1,7 +1,6 @@
 .dashboard-container {
   padding: var(--spacing-md);
   width: 100%;
-  margin: 0;
 }
 
 .dashboard-header {
@@ -74,22 +73,6 @@
   color: var(--primary-dark);
 }
 
-.provisioning-section {
-  margin-bottom: var(--spacing-lg);
-}
-
-.provisioning-section h2 {
-  margin: 0 0 var(--spacing-xs) 0;
-  font-size: 20px;
-}
-
-.section-description {
-  color: var(--gray-600);
-  margin: 0 0 var(--spacing-md) 0;
-  font-size: var(--font-size-xs);
-}
-
-/* Charts Section */
 .charts-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -121,11 +104,6 @@
   grid-column: 1 / -1;
 }
 
-.chart-container {
-  width: 100%;
-}
-
-/* Bar Chart */
 .bar-chart {
   display: flex;
   flex-direction: column;
@@ -149,7 +127,6 @@
   border-radius: var(--border-radius-sm);
   height: 30px;
   overflow: hidden;
-  position: relative;
 }
 
 .bar {
@@ -161,7 +138,6 @@
   justify-content: flex-end;
   padding-right: var(--spacing-sm);
   transition: all var(--transition-normal);
-  position: relative;
 }
 
 .bar:hover {
@@ -175,7 +151,6 @@
   font-weight: var(--font-weight-bold);
 }
 
-/* Pie Chart */
 .pie-chart {
   display: flex;
   align-items: center;
@@ -188,20 +163,8 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background: conic-gradient(
-    var(--primary-color) 0deg 126deg,
-    #4db6ac 126deg 226.8deg,
-    #7986cb 226.8deg 305.2deg,
-    #a1887f 305.2deg 360deg
-  );
+  background: conic-gradient(#1e88e5 0deg 126deg, #4db6ac 126deg 226.8deg, #7986cb 226.8deg 305.2deg, #a1887f 305.2deg 360deg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.pie-segment {
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 
 .pie-legend {
@@ -226,7 +189,7 @@
 }
 
 .legend-color.admin {
-  background: var(--primary-color);
+  background: #1e88e5;
 }
 
 .legend-color.developers {
@@ -241,7 +204,6 @@
   background: #a1887f;
 }
 
-/* Line Chart */
 .line-chart {
   position: relative;
   height: 250px;
@@ -260,7 +222,6 @@
 
 .grid-line {
   border-top: 1px solid var(--gray-200);
-  width: 100%;
 }
 
 .trend-line {
@@ -278,7 +239,6 @@
   font-weight: var(--font-weight-medium);
 }
 
-/* Activity List */
 .activity-list {
   display: flex;
   flex-direction: column;
@@ -445,10 +405,6 @@
 
   .line-chart {
     height: 150px;
-  }
-
-  .chart-labels {
-    font-size: var(--font-size-xs);
   }
 
   .bar-chart {

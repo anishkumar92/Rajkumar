@@ -1,11 +1,8 @@
 {
-  "buildCommand": "ng build",
-  "outputDirectory": "dist/saas-user-provisioning",
+  "buildCommand": "ng build --configuration production",
+  "outputDirectory": "dist/saas-user-provisioning/browser",
   "framework": "angular",
   "devCommand": "ng serve",
-  "env": {
-    "ENABLE_FILE_SYSTEM_API": "1"
-  },
   "rewrites": [
     {
       "source": "/(.*)",

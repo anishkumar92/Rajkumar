@@ -1,0 +1,15 @@
+{
+  "buildCommand": "ng build",
+  "outputDirectory": "dist/saas-user-provisioning",
+  "framework": "angular",
+  "devCommand": "ng serve",
+  "env": {
+    "ENABLE_FILE_SYSTEM_API": "1"
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

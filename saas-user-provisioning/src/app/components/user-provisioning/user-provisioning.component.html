@@ -1,0 +1,145 @@
+<div class="provisioning-wrapper">
+  <!-- Dropdown Filters Section -->
+  <div class="filters-section">
+    <div class="filter-group">
+      <label for="selectDepartment">1. Select Department</label>
+      <select id="selectDepartment" [(ngModel)]="selectedDepartment" (change)="onDepartmentChange()">
+        <option value="">-- Choose Department --</option>
+        <option value="engineering">Engineering</option>
+        <option value="marketing">Marketing</option>
+        <option value="sales">Sales</option>
+        <option value="finance">Finance</option>
+        <option value="hr">Human Resources</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="selectRole">2. Select Role</label>
+      <select id="selectRole" [(ngModel)]="selectedRole" (change)="onRoleChange()">
+        <option value="">-- Choose Role --</option>
+        <option value="admin">Administrator</option>
+        <option value="manager">Manager</option>
+        <option value="user">Standard User</option>
+        <option value="viewer">Viewer</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="selectGroup">3. Select Group</label>
+      <select id="selectGroup" [(ngModel)]="selectedGroup" (change)="onGroupChange()">
+        <option value="">-- Choose Group --</option>
+        <option *ngFor="let group of groups$ | async" [value]="group.id">
+          {{ group.name }} ({{ group.users.length }} users)
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Users Management Section -->
+  <div class="users-management" *ngIf="selectedGroup">
+    <!-- Search Section -->
+    <div class="search-section">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="🔍 Search by name, email, or role..."
+        [(ngModel)]="searchQuery"
+        (change)="onSearchChange()"
+      />
+    </div>
+
+    <div class="users-grid-wrapper">
+      <!-- Group Members Section -->
+      <div class="users-section">
+        <div class="section-header">
+          <h3>👥 Group Members</h3>
+          <span class="member-count">{{ (filteredGroupUsers$ | async)?.length || 0 }}</span>
+        </div>
+
+        <div class="users-grid">
+          <div *ngIf="(filteredGroupUsers$ | async)?.length === 0" class="empty-state">
+            <p>{{ searchQuery ? 'No matching users' : 'No users assigned to this group yet' }}</p>
+          </div>
+
+          <div
+            *ngFor="let user of filteredGroupUsers$ | async; let i = index"
+            class="user-card"
+            #userCard
+            [class.expanded]="expandedIndex === 'group-' + i"
+          >
+            <div class="user-card-header">
+              <span class="user-avatar">👤</span>
+              <div class="user-card-title">
+                <p class="user-name">{{ user.name }}</p>
+              </div>
+              <button
+                class="info-btn mobile-only"
+                title="Details"
+                (click)="toggleDetails('group-' + i)"
+              >
+                ℹ️
+              </button>
+            </div>
+
+            <div class="user-card-details">
+              <p class="user-email">{{ user.email }}</p>
+              <span class="user-role-badge">{{ user.role }}</span>
+            </div>
+
+            <button class="btn btn-danger btn-sm btn-block" (click)="removeUserFromGroup(user.id)">
+              ✕ Remove
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Available Users Section -->
+      <div class="users-section">
+        <div class="section-header">
+          <h3>➕ Available Users</h3>
+          <span class="member-count">{{ (filteredAvailableUsers$ | async)?.length || 0 }}</span>
+        </div>
+
+        <div class="users-grid">
+          <div *ngIf="(filteredAvailableUsers$ | async)?.length === 0" class="empty-state">
+            <p>{{ searchQuery ? 'No matching users' : 'All users are already assigned to this group' }}</p>
+          </div>
+
+          <div
+            *ngFor="let user of filteredAvailableUsers$ | async; let i = index"
+            class="user-card"
+            [class.expanded]="expandedIndex === 'available-' + i"
+          >
+            <div class="user-card-header">
+              <span class="user-avatar">👤</span>
+              <div class="user-card-title">
+                <p class="user-name">{{ user.name }}</p>
+              </div>
+              <button
+                class="info-btn mobile-only"
+                title="Details"
+                (click)="toggleDetails('available-' + i)"
+              >
+                ℹ️
+              </button>
+            </div>
+
+            <div class="user-card-details">
+              <p class="user-email">{{ user.email }}</p>
+              <span class="user-role-badge">{{ user.role }}</span>
+            </div>
+
+            <button class="btn btn-success btn-sm btn-block" (click)="addUserToGroup(user)">
+              ✓ Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help Text -->
+  <div class="help-section" *ngIf="!selectedGroup">
+    <p>Select a group from the dropdown above to manage user access permissions</p>
+  </div>
+</div>

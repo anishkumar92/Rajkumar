@@ -1,0 +1,192 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Dashboard</h1>
+    <p class="subtitle">User Access Provisioning Management</p>
+  </div>
+
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">👥</div>
+      <div class="stat-content">
+        <p class="stat-label">Total Users</p>
+        <p class="stat-value">125</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🏢</div>
+      <div class="stat-content">
+        <p class="stat-label">Active Groups</p>
+        <p class="stat-value">12</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🔐</div>
+      <div class="stat-content">
+        <p class="stat-label">Pending Access</p>
+        <p class="stat-value">8</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">✅</div>
+      <div class="stat-content">
+        <p class="stat-label">Provisioned</p>
+        <p class="stat-value">98%</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-section">
+    <!-- Users by Role Chart -->
+    <div class="chart-card">
+      <h3>Users by Role</h3>
+      <div class="chart-container">
+        <div class="bar-chart">
+          <div class="bar-group">
+            <div class="bar-label">Admin</div>
+            <div class="bar-wrapper">
+              <div class="bar" style="width: 35%;" title="35 users">
+                <span class="bar-value">35</span>
+              </div>
+            </div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label">Manager</div>
+            <div class="bar-wrapper">
+              <div class="bar" style="width: 48%;" title="48 users">
+                <span class="bar-value">48</span>
+              </div>
+            </div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label">Developer</div>
+            <div class="bar-wrapper">
+              <div class="bar" style="width: 28%;" title="28 users">
+                <span class="bar-value">28</span>
+              </div>
+            </div>
+          </div>
+          <div class="bar-group">
+            <div class="bar-label">Viewer</div>
+            <div class="bar-wrapper">
+              <div class="bar" style="width: 14%;" title="14 users">
+                <span class="bar-value">14</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group Distribution Chart -->
+    <div class="chart-card">
+      <h3>Group Distribution</h3>
+      <div class="chart-container">
+        <div class="pie-chart">
+          <div class="pie">
+            <div class="pie-segment admin" style="--percent: 35;" title="Admins: 35%"></div>
+            <div class="pie-segment developers" style="--percent: 28;" title="Developers: 28%"></div>
+            <div class="pie-segment managers" style="--percent: 22;" title="Managers: 22%"></div>
+            <div class="pie-segment viewers" style="--percent: 15;" title="Viewers: 15%"></div>
+          </div>
+          <div class="pie-legend">
+            <div class="legend-item">
+              <span class="legend-color admin"></span>
+              <span>Admins (35%)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color developers"></span>
+              <span>Developers (28%)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color managers"></span>
+              <span>Managers (22%)</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color viewers"></span>
+              <span>Viewers (15%)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Access Trends Chart -->
+  <div class="chart-card full-width">
+    <h3>Access Provisioning Trends (Last 7 Days)</h3>
+    <div class="chart-container">
+      <div class="line-chart">
+        <div class="chart-grid">
+          <div class="grid-line" style="height: 20%;"></div>
+          <div class="grid-line" style="height: 20%;"></div>
+          <div class="grid-line" style="height: 20%;"></div>
+          <div class="grid-line" style="height: 20%;"></div>
+          <div class="grid-line" style="height: 20%;"></div>
+        </div>
+        <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid meet" class="trend-line">
+          <polyline points="10,120 70,100 130,85 190,70 250,60 310,55 370,50" fill="none" stroke="#1e88e5" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="10" cy="120" r="4" fill="#1e88e5"/>
+          <circle cx="70" cy="100" r="4" fill="#1e88e5"/>
+          <circle cx="130" cy="85" r="4" fill="#1e88e5"/>
+          <circle cx="190" cy="70" r="4" fill="#1e88e5"/>
+          <circle cx="250" cy="60" r="4" fill="#1e88e5"/>
+          <circle cx="310" cy="55" r="4" fill="#1e88e5"/>
+          <circle cx="370" cy="50" r="4" fill="#1e88e5"/>
+        </svg>
+        <div class="chart-labels">
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+          <span>Sun</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="chart-card full-width">
+    <h3>Recent Activity</h3>
+    <div class="activity-list">
+      <div class="activity-item">
+        <div class="activity-icon">✅</div>
+        <div class="activity-content">
+          <p class="activity-title">John Doe added to Developers group</p>
+          <p class="activity-time">2 hours ago</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">🔄</div>
+        <div class="activity-content">
+          <p class="activity-title">Jane Smith role changed to Manager</p>
+          <p class="activity-time">4 hours ago</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">✅</div>
+        <div class="activity-content">
+          <p class="activity-title">Bob Johnson added to Administrators group</p>
+          <p class="activity-time">1 day ago</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">🔄</div>
+        <div class="activity-content">
+          <p class="activity-title">Alice Brown removed from Viewers group</p>
+          <p class="activity-time">2 days ago</p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-icon">✅</div>
+        <div class="activity-content">
+          <p class="activity-title">Charlie Davis access granted to Finance group</p>
+          <p class="activity-time">3 days ago</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
